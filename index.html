@@ -10,7 +10,6 @@
             margin: 0;
             padding: 0;
             color: #333;
-            scroll-behavior: smooth; /* 平滑滚动效果 */
         }
         header {
             background: url('header-background.jpg') no-repeat center center/cover; /* 本地背景图片 */
@@ -185,13 +184,37 @@
     </footer>
 
     <script>
+        // 添加平滑滚动和线性速度的 JavaScript
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1); // 获取目标部分的ID
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.getElementById(targetId); // 获取目标部分的DOM元素
+                const offsetTop = target.getBoundingClientRect().top; // 目标部分顶部到视口顶部的距离
+                const scrollContainer = document.scrollingElement || document.documentElement; // 滚动的容器，适配各种浏览器
+
+                const start = scrollContainer.scrollTop; // 当前滚动位置
+                const end = start + offsetTop; // 目标滚动位置
+
+                const duration = 1000; // 滚动时间设为1秒
+                const startTime = performance.now(); // 开始时间
+
+                function scroll() {
+                    const currentTime = performance.now();
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1); // 进度，确保不超过1
+
+                    const easeInOutCubic = progress < 0.5 ? 4 * progress ** 3 : (progress - 1) * (2 * progress - 2) ** 2 + 1; // 缓动函数，这里使用了简单的 easeInOutCubic
+
+                    scrollContainer.scrollTop = start + (end - start) * easeInOutCubic; // 根据进度应用滚动位置
+
+                    if (elapsed < duration) {
+                        requestAnimationFrame(scroll); // 继续滚动
+                    }
+                }
+
+                scroll(); // 开始滚动
             });
         });
     </script>
