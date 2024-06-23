@@ -108,6 +108,7 @@
                 <li><a href="#" onclick="scrollToStep('step1')">第一步：跳转到平安校园</a></li>
                 <li><a href="#" onclick="scrollToStep('step2')">第二步：等待用户登录</a></li>
                 <li><a href="#" onclick="scrollToStep('step3')">第三步：返回该页面</a></li>
+                <li><a href="#" onclick="closeCurrentPage()">返回首页</a></li>
             </ul>
         </div>
         <div class="main-content">
@@ -138,6 +139,10 @@
         function scrollToStep(stepId) {
             var stepElement = document.getElementById(stepId);
             stepElement.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeCurrentPage() {
+            window.close();
         }
     </script>
 </body>
