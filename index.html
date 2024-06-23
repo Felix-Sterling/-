@@ -125,9 +125,9 @@
     </header>
     <nav>
         <a href="#about">关于我</a>
-        <a href="#resume">简历</a>
+        <a href="#resume">项目</a>
         <a href="#skills">技能</a>
-        <a href="subpage.html">我要加号码</a> <!-- 添加链接到次级网站 -->
+        <a href="paxy.html" target="_blank">次级网站</a> <!-- 添加链接到次级网站 -->
     </nav>
     <div class="container">
         <section id="about" class="section">
@@ -140,7 +140,7 @@
                     <p><strong>电话:</strong> 0859-0000000</p>
                     <p><strong>地址:</strong> 1 Lanhua Road, Guizhou, China</p>
                     <p><strong>邮箱:</strong> laband@foxmail.com</p>
-                    <p>你好，这是我第一次尝试挂载网站</p>
+                    <p>Hello World</p>
                 </div>
             </div>
         </section>
@@ -155,8 +155,8 @@
                 <div>
                     <h3>小爱通加号码(Coming Soon)</h3>
                     <p><strong>日期:</strong> Present to future</p>
-                    <p>全新方式正在酝酿中.....(考虑到部分特殊原因，我将会启用通信证机制)</p>
-                    <button onclick="window.location.href='https://www.example.com';">点击跳转</button>
+                    <p>全新方式正在酝酿中.....(考虑到部分特殊原因，我将会启用通行证机制)</p>
+                    <button onclick="window.open('paxy.html', '_blank');">点击跳转</button>
                 </div>
                 <div>
                     <h3>Future</h3>
@@ -197,21 +197,24 @@
     </div>
     <footer class="footer">
         <p>&copy; 2024 KINGX. All rights reserved.</p>
-        <p><a href="#about">关于我</a> | <a href="#resume">简历</a> | <a href="#skills">技能</a></p>
+        <p><a href="#about">关于我</a> | <a href="#resume">项目</a> | <a href="#skills">技能</a></p>
         <p>电话: 123-456-7890 | 邮箱: laband@foxmail.com</p>
     </footer>
 
     <script>
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1); // 获取目标ID
+                const targetElement = document.getElementById(targetId);
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                    inline: 'nearest',
-                    duration: 2000 // 滚动时间设为2秒
-                });
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                        inline: 'nearest',
+                    });
+                }
             });
         });
 
