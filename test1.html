@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBTV</title>
+    <style>
+        /* 样式部分保持不变，这里只关注JavaScript部分的添加 */
+        /* Reset some default styles */
+        body, h1, p, ul, li, img {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        /* Basic page styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        header .logo img {
+            height: 40px;
+        }
+
+        header nav ul {
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Main content styles */
+        main {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .content {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .main-content {
+            flex: 2;
+            padding-right: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .sub-heading {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .image-section {
+            margin-bottom: 20px;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .sidebar {
+            flex: 0.5;
+            background: linear-gradient(to left, rgb(0, 2, 2), transparent);
+            padding: 20px;
+            color: white;
+        }
+
+        .hot-topics h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .hot-topics ul li {
+            margin-bottom: 10px;
+        }
+
+        .hot-topics ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hot-topics ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="CCTV Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">时政</a></li>
+                <li><a href="#">新闻</a></li>
+                <li><a href="#">评论</a></li>
+                <li><a href="#">视频</a></li>
+                <li><a href="#">财经</a></li>
+                <li><a href="#">体育</a></li>
+                <li><a href="#">军事</a></li>
+                <li><a href="#">娱乐</a></li>
+                <li><a href="#">文化</a></li>
+                <li><a href="#">科技</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            <div class="main-content">
+                <h1>“滚”</h1>
+                <p class="sub-heading">“滚”</p>
+                <div class="image-section">
+                    <img src="scenic-view.jpg" alt="Scenic View">
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="hot-topics">
+                    <h2>热门话题</h2>
+                    <ul>
+                        <li><a href="#">话题1</a></li>
+                        <li><a href="#">话题2</a></li>
+                        <li><a href="#">话题3</a></li>
+                        <li><a href="#">话题4</a></li>
+                        <li><a href="#">话题5</a></li>
+                        <li><a href="#">话题6</a></li>
+                        <li><a href="#">话题7</a></li>
+                        <li><a href="#">话题8</a></li>
+                        <li><a href="#">话题9</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 SBTV. All Rights Reserved.</p>
+    </footer>
+
+    <!-- 音频播放器 -->
+    <audio id="audioPlayer" src="sound.mp3"></audio>
+
+    <!-- JavaScript部分，用于播放音效 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('audioPlayer');
+            audio.play();
+        });
+    </script>
+</body>
+</html>
